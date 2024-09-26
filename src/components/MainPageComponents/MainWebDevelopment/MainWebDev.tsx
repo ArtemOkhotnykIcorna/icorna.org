@@ -10,7 +10,7 @@ const MainWebDev: React.FC = () => {
              <span>Web</span> Development
             </div>
             <div className='main__web-subtitle'>
-            that's where the <span>business</span> starts
+            that&apos;s where the <span>business</span> starts
             </div>
             <div className='main__web-link'>
             {'<'} Read More

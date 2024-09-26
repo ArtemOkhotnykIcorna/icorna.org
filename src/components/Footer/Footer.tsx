@@ -1,10 +1,6 @@
 'use client';
 
 import React from 'react';
-import upwork from '@/image/SocialIcons/upwork.svg'
-import linkedin from '@/image/SocialIcons/linkedin.svg'
-import telegram from '@/image/SocialIcons/telegram.svg'
-import instagram from '@/image/SocialIcons/instagram.svg'
 import './footer.scss';
 
 const Footer: React.FC = () => {
