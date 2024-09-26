@@ -79,7 +79,7 @@
       
             &::before {
               border-radius: 45%;
-              background: rgba(2, 141, 241, 1);
+              background: rgba(2, 141, 241, 0.5);
               animation: wave 5s linear infinite;
             }
       
@@ -100,3 +100,46 @@
       transform: translate(-50%,-75%) rotate(360deg);
     }
   }
+  @media (max-width: 1140px) {
+    .main__web3{
+        .main__web3-title{
+            font-size: 100px;
+        } 
+    }
+}
+@media (max-width: 870px) {
+    .main__web3{
+        height: 500px;
+        .main__web3-title{
+            font-size: 80px;
+        } 
+    }
+}
+@media (max-width: 710px) {
+    .main__web3{
+        .main__web3-title{
+            font-size: 60px;
+            span{
+                font-size: 38px;
+            }
+        } 
+        .main__web3-button{
+            font-size: 25px;
+        }
+    }
+}
+@media (max-width: 540px) {
+    .main__web3{
+        
+        .main__web3-title{
+            padding-top: 70px;
+            font-size: 40px;
+            span{
+                font-size: 34px;
+            }
+        } 
+        .main__web3-button{
+            font-size: 25px;
+        }
+    }
+}

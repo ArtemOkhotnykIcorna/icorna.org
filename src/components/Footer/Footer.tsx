@@ -66,7 +66,7 @@ const Footer: React.FC = () => {
                         </a>
                     </div>
                     <div className='footer__links-mail'>
-                    artem.okhotnyk@icorna.org
+                        <a href="mailto:artem.okhotnyk@icorna.org">artem.okhotnyk@icorna.org</a>
                     </div>
                 </div>
                 <div className='footer__links-text'>Update your  

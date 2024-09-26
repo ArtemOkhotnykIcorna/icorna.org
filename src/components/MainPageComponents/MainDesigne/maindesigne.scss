@@ -63,7 +63,7 @@
                     font-size: 64px;
                     position: absolute; /* Абсолютное позиционирование для субтитров */
                     color: #fd1ab0;
-                    top: 56%; /* Субтитр будет размещен сразу под заголовком */
+                    top: 60%; /* Субтитр будет размещен сразу под заголовком */
                     left: 50%;
                     transform: translateX(-50%); /* Центрирование по горизонтали */
                     ul {
@@ -83,6 +83,41 @@
             font-size: 32px;
             color: #fff;
             padding: 30px;
+        }
+    }
+}
+@media (max-width: 950px) {
+    .main__designe-title {
+        font-size: 100px !important; 
+        .main__designe-subtitle {
+            font-size: 44px !important;
+            top: 65% !important;
+        }
+    }
+}
+@media (max-width: 820px) {
+    .main__designe-title {
+        font-size: 100px !important; 
+        .main__designe-subtitle {
+            font-size: 36px !important;
+            top: 65% !important;
+        }
+    }
+}
+@media (max-width: 740px) {
+    .main__designe{
+        flex-direction: column;
+        .main__designe-block {
+            height: 300px;
+        }
+    }
+}
+@media (max-width: 400px) {
+    .main__designe-title {
+        font-size: 80px !important; 
+        .main__designe-subtitle {
+            font-size: 32px !important;
+            top: 65% !important;
         }
     }
 }

@@ -49,6 +49,35 @@
                     
                 }
             }
+            .footer__links-mail{
+                
+                a{
+                    font-weight: 400;
+                    font-size: 15px;
+                    line-height: 0%;
+                    letter-spacing: 0.05em;
+                    text-transform: uppercase;
+                    transition: all 0.3s ease;
+                    position: relative;
+                }
+                a::after {
+                        content: '';
+                        position: absolute;
+                        left: 0;
+                        bottom: -3px;
+                        width: 0;
+                        height: 2px;
+                        background-color: #f14902;
+                        transition: width 0.3s ease;
+                }
+                a:hover{
+                        scale: 1.1;
+                        color: #f14902;
+                }
+                a:hover::after {
+                        width: 100%;
+                }
+            }
             .footer__links-icons {
                 display: flex;
                 gap: 20px;
@@ -58,10 +87,10 @@
                 }
                 a:hover svg {
                     scale: 1.1;
-                    animation: shake 0.5s ease-in-out; /* Анимация тряски при наведении */
+                    animation: shake 0.5s ease-in-out; 
                 }
                 a:hover svg path {
-                    fill: #f14902; /* Изменение цвета при наведении */
+                    fill: #f14902;
                 }
             }
         }
@@ -80,6 +109,9 @@
         display: flex;
         justify-content: space-between;
         font-family: "Trispace";
+        font-weight: 400;
+        font-size: 15px;
+        letter-spacing: -0.07em;
     }
 }
 @keyframes shake {
@@ -95,3 +127,48 @@
     90% { transform: rotate(1deg); }
     100% { transform: rotate(0deg); }
 }
+@media (max-width: 760px) {
+   .footer{
+    .footer__links{
+        flex-direction: column;
+        .footer__links-text{
+            max-width: 100%;
+            text-align: left;
+        }
+    }
+   }
+}
+@media (max-width: 740px) {
+    .footer{
+        padding: 65px 20px 20px 20px;
+        .footer_privacy{
+            font-size: 12px;
+        }
+    }
+   
+ }
+ @media (max-width: 405px) {
+    .footer{
+        padding: 40px 20px 20px 20px;
+        .footer_privacy{
+            font-size: 12px;
+        }
+    }
+    .footer__links-icons {
+        a{
+            svg{
+                width: 35px;
+                height: 35px;
+            }
+        }
+        
+    }
+    .footer__links-text{
+        font-size: 38px !important;
+    }
+    .footer__links-link{
+        div{
+            gap: 10px !important;
+        }
+    }
+ }

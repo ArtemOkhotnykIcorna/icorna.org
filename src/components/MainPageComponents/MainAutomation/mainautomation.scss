@@ -27,7 +27,6 @@
             justify-content: center;
             div:first-child{
                 span{
-                    font-size: 48px;
                     color: #ff9300;
                 }
             }
@@ -46,7 +45,97 @@
         font-size: 16px;
         color: #e4f3f1;
         align-self: flex-start;
-        padding-bottom:70px;
-        padding-left: 70px;
+        margin-bottom:70px;
+        margin-left: 70px;
+        transition: all 0.3s ease;
+        &:hover{
+            color: #f14902;
+            cursor: pointer;
+        }
+    }
+}
+@media (max-width: 1195px) {
+    .main__automation{
+        .main__automation-title{
+            font-size: 160px;
+        } 
+    }
+}
+@media (max-width: 960px) {
+    .main__automation{
+        .main__automation-title{
+            font-size: 130px;
+            .main__automation-subtitle{
+                font-size: 34px;
+                div{
+                    span{
+                        font-size: 38px;
+                    }
+                }
+                
+            }
+        } 
+    }
+}
+@media (max-width: 780px) {
+    .main__automation{
+        height:500px;
+        padding: 50px 20px;
+        .main__automation-title{
+            font-size: 100px;
+            .main__automation-subtitle{
+                font-size: 30px;
+                div{
+                    span{
+                        font-size: 34px;
+                    }
+                }
+                
+            }
+        } 
+    }
+}
+@media (max-width: 600px) {
+    .main__automation{
+        .main__automation-title{
+            font-size: 80px;
+            .main__automation-subtitle{
+                font-size: 25px;
+                div{
+                    span{
+                        font-size: 27px;
+                    }
+                }
+                
+            }
+        } 
+        .main__automation-link{
+            margin-bottom:30px;
+            margin-left: 30px;
+        }
+    }
+}
+@media (max-width: 490px) {
+    .main__automation{
+        .main__automation-title{
+            font-size: 60px;
+            .main__automation-subtitle{
+                font-size: 20px;
+                div{
+                    span{
+                        font-size: 23px;
+                    }
+                }
+                
+            }
+        } 
+    }
+}
+@media (max-width: 360px) {
+    .main__automation{
+        .main__automation-title{
+            font-size: 55px;
+            
+        } 
     }
 }
