@@ -1,0 +1,97 @@
+.footer{
+    display: flex;
+    flex-direction: column;
+    background: #1c191a;
+    padding: 65px 50px 20px 50px;
+    color: #fff;
+    gap: 60px;
+    .footer__links{
+        display: flex;
+        justify-content: space-between;
+        gap: 20px;
+        .footer__links-block{
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            text-transform: uppercase;
+            .footer__links-link{
+                font-family: 'Montserrat';
+                display: flex;
+                gap: 20px;
+                font-weight: 700;
+                font-size: 12px;
+                letter-spacing: 0.04em;
+                
+                flex-direction: column;
+                div{
+                    display: flex;
+                    gap: 30px;
+                    a{
+                        transition: all 0.3s ease;
+                    }
+                    a::after {
+                        content: '';
+                        position: absolute;
+                        left: 0;
+                        bottom: -3px;
+                        width: 0;
+                        height: 2px;
+                        background-color: #f14902;
+                        transition: width 0.3s ease;
+                    }
+                    a:hover{
+                        scale: 1.1;
+                        color: #f14902;
+                    }
+                    a:hover::after {
+                        width: 100%;
+                    }
+                    
+                }
+            }
+            .footer__links-icons {
+                display: flex;
+                gap: 20px;
+                a {
+                    transition: all 0.3s ease;
+                    display: inline-block;
+                }
+                a:hover svg {
+                    scale: 1.1;
+                    animation: shake 0.5s ease-in-out; /* Анимация тряски при наведении */
+                }
+                a:hover svg path {
+                    fill: #f14902; /* Изменение цвета при наведении */
+                }
+            }
+        }
+        .footer__links-text{
+            font-weight: 300;
+            font-size: 43px;
+            text-align: right;
+            max-width: 260px;
+            span{
+                color: #f14902;
+            }
+        }
+        
+    }
+    .footer_privacy{
+        display: flex;
+        justify-content: space-between;
+        font-family: "Trispace";
+    }
+}
+@keyframes shake {
+    0% { transform: rotate(0deg); }
+    10% { transform: rotate(3deg); }
+    20% { transform: rotate(-3deg); }
+    30% { transform: rotate(3deg); }
+    40% { transform: rotate(-3deg); }
+    50% { transform: rotate(2deg); }
+    60% { transform: rotate(-2deg); }
+    70% { transform: rotate(2deg); }
+    80% { transform: rotate(-2deg); }
+    90% { transform: rotate(0.5deg); }
+    100% { transform: rotate(0deg); }
+}

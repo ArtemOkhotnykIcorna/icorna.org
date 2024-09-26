@@ -1,0 +1,88 @@
+.main__designe * {
+    position: relative; 
+    z-index: 2; 
+}
+
+.main__designe {
+    display: flex;
+    padding: 0px 15px;
+    width: 100%;
+    gap: 15px;
+    color: #fff;
+    justify-content: space-between;
+
+    .designe__block-ui {
+        background: url(../../../image/MainPage/MainBgDesigne1.png);
+    }
+
+    .designe__block-interior {
+        background: url(../../../image/MainPage/MainBgDesigne2.png);
+    }
+
+    .main__designe-block {
+        height: 40.625vw;
+        width: 100%;
+        position: relative;
+        background-repeat: no-repeat;
+        background-size: cover;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        &::before {
+            content: ''; 
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(62, 46, 46, 0.3);
+            z-index: 1;
+        }
+
+        .main__designe-head {
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            height: 100%;
+            text-align: center;
+            
+            .main__designe-title {
+                font-weight: 300;
+                position: relative; /* Позиционирование относительно родителя */
+                font-size: 128px;
+                margin: 0;
+                display: flex;
+                height: 100%;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+            
+                .main__designe-subtitle {
+                    font-weight: 300;
+                    font-size: 64px;
+                    position: absolute; /* Абсолютное позиционирование для субтитров */
+                    color: #fd1ab0;
+                    top: 56%; /* Субтитр будет размещен сразу под заголовком */
+                    left: 50%;
+                    transform: translateX(-50%); /* Центрирование по горизонтали */
+                    ul {
+                        color: #2cd0e6;
+                        list-style-type: none;
+                    }
+                }
+                .main__designe-ui{
+                    top: 63%;
+                    font-size: 50px;
+                }
+            }
+        }
+
+        .main__designe-footer {
+            font-weight: 300;
+            font-size: 32px;
+            color: #fff;
+            padding: 30px;
+        }
+    }
+}
