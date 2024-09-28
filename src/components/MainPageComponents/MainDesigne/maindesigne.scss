@@ -25,10 +25,25 @@
     justify-content: space-between;
   
     .parallax-block {
-      width: 100%; /* Убедитесь, что Parallax занимает всю ширину */
-      display: flex; /* Это предотвратит сужение блоков */
-    }
-  
+        width: 100%;
+        opacity: 0; /* Начальная непрозрачность */
+        transform: translateX(0);
+        transition: transform 1s ease-out, opacity 1s ease-out;
+    
+        &.fade-in-left {
+          transform: translateX(-100%); /* Начальное смещение влево */
+        }
+    
+        &.fade-in-right {
+          transform: translateX(100%); /* Начальное смещение вправо */
+        }
+    
+        &.is-visible {
+          opacity: 1; /* Делаем блок видимым */
+          transform: translateX(0); /* Возвращаем блок в центр */
+        }
+      }
+    
     .main__designe-block {
       height: 100vh;
       width: 100%;
@@ -96,7 +111,11 @@
       }
     }
   }
-  
+  .fade-in-left.is-visible,
+  .fade-in-right.is-visible {
+    opacity: 1;
+    transform: translateX(0); /* Возвращаем блок в центр */
+  }
 .main__designe-links{
     display: flex;
     flex-direction: column;
