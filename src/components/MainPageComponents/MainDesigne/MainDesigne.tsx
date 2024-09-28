@@ -29,9 +29,10 @@ const MainDesigne: React.FC = () => {
   return (
     <div className='main__designe'>
       {/* Параллакс для блока UI/UX с анимацией */}
-      <Parallax speed={-2} className="parallax-block fade-in-left">
+      <Parallax speed={-3} className="parallax-block fade-in-left">
         <div className='main__designe-block designe__block-ui'>
           <div className='main__designe-head'>
+          <Parallax speed={-3}>
             <div className='main__designe-title'>
               Design
               <div className='main__designe-subtitle main__designe-ui'>
@@ -41,6 +42,7 @@ const MainDesigne: React.FC = () => {
                 </ul>
               </div>
             </div>
+            </Parallax>
           </div>
           <div className='main__designe-links'>
             <div className='main__designe-link'>
@@ -58,7 +60,7 @@ const MainDesigne: React.FC = () => {
       </Parallax>
 
       {/* Параллакс для блока Interior с анимацией */}
-      <Parallax speed={2} className="parallax-block fade-in-right">
+      <Parallax speed={3} className="parallax-block fade-in-right">
         <div className='main__designe-block designe__block-interior'>
           <div className='main__designe-head'>
             <div className='main__designe-title'>

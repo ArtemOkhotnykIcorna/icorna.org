@@ -8,12 +8,12 @@ const MainWebDev: React.FC = () => {
   return (
     <div className='main__web'>
       {/* Параллакс с небольшой скоростью для заголовка */}
-      <Parallax speed={-2}>
+      <Parallax speed={-10}>
         <div className='main__web-title'>
           <span>Web</span> Development
         </div>
       </Parallax>
-      <Parallax speed={-2}>
+      <Parallax speed={-10}>
       <svg className='main__web-svg' xmlns="http://www.w3.org/2000/svg" version="1.1">
         <defs>
           <filter id="gooey">
@@ -35,18 +35,17 @@ const MainWebDev: React.FC = () => {
       </button>
       </Parallax>
       {/* Параллакс для подзаголовка с небольшим движением */}
-      <Parallax speed={1}>
+      <Parallax speed={-13}>
         <div className='main__web-subtitle'>
           that&apos;s where the <span>business</span> starts
         </div>
-      </Parallax>
-
-      {/* Параллакс для ссылки с небольшим движением */}
-      <Parallax speed={1}>
         <div className='main__web-link'>
             <a href="">{'<'} Read More</a>
         </div>
       </Parallax>
+
+      {/* Параллакс для ссылки с небольшим движением */}
+      
     </div>
   );
 };
