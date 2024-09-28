@@ -1,7 +1,18 @@
+@mixin button($bcolor, $url, $x1, $y1, $bor, $col) {
+    background-color: $bcolor;
+    -webkit-mask: url($url);
+    mask: url($url);
+    -webkit-mask-size: $x1 $y1;
+    mask-size: $x1 $y1;
+    border: $bor;
+    color: $col;
+    transition: background-color 0.3s ease; // Плавный переход фона
+  }
 .main__automation{
     background: url(../../../image//MainPage/MainBgAutomation.png);
     width: 100%;
-    height:658px;
+    min-height: 100vh;
+  overflow: hidden;
     padding: 10px 20px;
     background-repeat: no-repeat;
     background-size: cover;
@@ -9,51 +20,167 @@
     align-items: center;
     justify-content: space-between;
     flex-direction: column;
-    .main__automation-title{
-        font-weight: 300;
-        font-size: 200px;
-        color: #e4f3f1;
+    .parallax-title{
         display: flex;
-        flex-direction: column;
-        .main__automation-subtitle{
-            font-weight: 300;
-            font-size: 40px;
-            text-align: right;
-            color: #fff;
-            display: flex;
-            max-width:733px;
-            align-self: flex-end;
             flex-direction: column;
-            justify-content: center;
-            div:first-child{
-                span{
-                    color: #ff9300;
+        .main__automation-title{
+            font-weight: 300;
+            font-size: 200px;
+            color: #e4f3f1;
+            display: flex;
+            flex-direction: column;
+            .main__automation-subtitle{
+                font-weight: 300;
+                font-size: 40px;
+                text-align: right;
+                color: #fff;
+                display: flex;
+                max-width:733px;
+                align-self: flex-end;
+                flex-direction: column;
+                justify-content: center;
+                div:first-child{
+                    span{
+                        color: #ff9300;
+                    }
                 }
-            }
-            div{
-                span{
-                    color: #f14902;
-                    font-size: 48px;
+                div{
+                    span{
+                        color: #f14902;
+                        font-size: 48px;
+                    }
                 }
+               
+                
             }
-           
-            
         }
+        .button-container-3 {
+            position: relative;
+            align-self: flex-end;
+            margin-top: 20px;
+            width: 253px;
+            height: 51px;
+            overflow: hidden;
+            font-weight: 300;
+            font-size: 32px;
+            color: #fff;
+            transition:all 0.9s ease;
+            border-radius: 13px;
+            background-color: #f14a02;
+            button {
+             width: 101%;
+             height: 100%;
+             font-weight: 300;
+             font-size: 32px;
+             @include button(#141130, "https://raw.githubusercontent.com/pizza3/asset/master/natureSmaller.png",
+             7100%,
+             100%,
+             none,
+             #fff);
+             cursor: pointer;
+             -webkit-animation: ani2 0.9s steps(70) forwards;
+             animation: ani2 0.9s steps(70) forwards;
+             &:hover {
+              -webkit-animation: ani 1s steps(70) forwards;
+              animation: ani 1s steps(70) forwards;
+              background-color: #f14902;
+             }
+            }
+           }
     }
-    .main__automation-link{
-        font-weight: 300;
-        font-size: 16px;
-        color: #e4f3f1;
+    
+    .parallax-link{
         align-self: flex-start;
-        margin-bottom:70px;
-        margin-left: 70px;
-        transition: all 0.3s ease;
-        &:hover{
-            color: #f14902;
-            cursor: pointer;
+        .main__automation-link{
+            font-weight: 300;
+            font-size: 16px;
+            color: #e4f3f1;
+            align-self: flex-start;
+            margin-bottom:70px;
+            margin-left: 70px;
+            transition: all 0.3s ease;
+            &:hover{
+                color: #f14902;
+                cursor: pointer;
+            }
         }
     }
+    
 }
+
+.mas {
+    position: absolute;
+    color: #141130;
+    display: flex;
+    color: #fff;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    font-weight: 300;
+    font-size: 32px;
+    border-radius: 13px;
+    overflow: hidden;
+    transition:all 0.7s ease;
+}
+
+@-webkit-keyframes ani {
+ from {
+  -webkit-mask-position: 0 0;
+  mask-position: 0 0;
+ }
+
+ to {
+  -webkit-mask-position: 100% 0;
+  mask-position: 100% 0;
+ }
+}
+
+@keyframes ani {
+ from {
+  -webkit-mask-position: 0 0;
+  mask-position: 0 0;
+ }
+
+ to {
+  -webkit-mask-position: 100% 0;
+  mask-position: 100% 0;
+ }
+}
+
+@-webkit-keyframes ani2 {
+ from {
+  -webkit-mask-position: 100% 0;
+  mask-position: 100% 0;
+ }
+
+ to {
+  -webkit-mask-position: 0 0;
+  mask-position: 0 0;
+ }
+}
+
+@keyframes ani2 {
+ from {
+  -webkit-mask-position: 100% 0;
+  mask-position: 100% 0;
+ }
+
+ to {
+  -webkit-mask-position: 0 0;
+  mask-position: 0 0;
+ }
+}
+
+.parallax-button{
+    align-self: flex-end;
+    
+}
+
+
+
+
+
 @media (max-width: 1195px) {
     .main__automation{
         .main__automation-title{

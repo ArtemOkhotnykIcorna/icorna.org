@@ -6,7 +6,8 @@
     background:url(../../../image/MainPage/MainBgWeb3.png);
     background-size: cover;
     position: relative;
-    height: 670px;
+    min-height: 100vh;
+  overflow: hidden;
     width: 100%;
     display: flex;
     color: #fff;

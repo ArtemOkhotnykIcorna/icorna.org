@@ -1,7 +1,101 @@
+$prime: #f44a56; // Background color for bubbles and button
+$second: #ffffff; // Color for text
+$hover-bg: #e7333f; // Darker background color on hover
+
+.main__web-svg{
+    position: absolute !important;
+}
+#gooey-button {
+    margin-top: 40px;
+    font-size: 2rem;
+    padding: 10px 30px;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: $second; // Text color
+    filter: url('#gooey'); // Apply gooey filter
+    position: relative;
+    background-color: $prime; // Button background color
+    border-radius: 13px; // Add border radius for rounded corners
+    cursor: pointer; // Change cursor to pointer on hover
+    max-width: 253px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+
+    // Add 3D shadow effect
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+
+    &:focus {
+        outline: none;
+    }
+
+    &:hover {
+        background-color: $hover-bg; // Darker background on hover
+        transform: translateY(-4px); // Slightly lift the button for 3D effect
+        box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3); // Add a larger shadow for 3D effect
+
+        // Disable bubble animation on hover by setting their opacity to 0
+        .bubbles {
+            opacity: 0;
+        }
+    }
+
+    // Container for bubbles
+    .bubbles {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+
+        // Define styles for individual bubbles
+        .bubble {
+            background-color: $prime; // Bubble background color
+            // Define elongated bubbles using asymmetric border-radius
+            border-radius: 50% 50% 25% 25%; // Create an oval/elongated shape
+            position: absolute;
+            top: 0;
+            display: block;
+            z-index: -1;
+
+            // Generate multiple bubbles with unique animations
+            @for $bubble from 1 through 10 {
+                &:nth-child(#{$bubble}) {
+                    $width: 30px; // Define bubble width
+                    $height: 20px; // Define bubble height for elongation
+                    left: #{random(100)+50}px; // Randomize horizontal position across the full width
+                    width: $width;
+                    height: $height; // Elongate the bubbles vertically
+                    animation: move-#{$bubble} #{2 + $bubble * 0.02}s infinite; // Define animation duration
+                    animation-delay: #{$bubble * 0.2}s; // Delay for each bubble
+                    opacity: 1; // Ensure bubbles are visible by default
+                }
+            }
+        }
+    }
+}
+
+// Define keyframes for bubble animations
+@for $bubble from 1 through 10 {
+    @keyframes move-#{$bubble} {
+        0% {
+            transform: translate(0, 0); // Initial position
+        }
+        99% {
+            transform: translate(0, -(random(80) + 40) + px); // Move upwards randomly
+        }
+        100% {
+            transform: translate(0, 0); // Return to initial position
+            opacity: 0; // Fade out
+        }
+    }
+}
+
 .main__web{
     margin-top: 20px;
     background: url(../../../image/MainPage/MainBgWeb.png);
-    height: 670px;
+    min-height: 100vh;
+  overflow: hidden;
     width: 100%;
     padding-left: 80px;
     background-size: cover;
@@ -37,14 +131,17 @@
         align-self: flex-end;
         padding-right: 35px;
         position: relative;
-        cursor: pointer;
-        transition: all 0.3s ease;
         padding-bottom: 25px;
         text-align: right;
-        &:hover{
+        a{
+            transition: all 0.3s ease;
+            cursor: pointer;
+            &:hover{
             
-            color:  #f14902;
+                color:  #f14902;
+            }
         }
+        
     }
 }
 .main__web::before {
@@ -54,8 +151,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    max-height: 670px;
-    background: rgba(217, 217, 217, 0.2);
+    background: rgba(66, 66, 66, 0.2);
     z-index: 1;
 }
 
