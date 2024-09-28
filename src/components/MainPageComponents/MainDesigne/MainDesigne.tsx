@@ -32,7 +32,7 @@ const MainDesigne: React.FC = () => {
       <Parallax speed={-3} className="parallax-block fade-in-left">
         <div className='main__designe-block designe__block-ui'>
           <div className='main__designe-head'>
-          <Parallax speed={-3}>
+          <Parallax className='parallax-block__designe-title' speed={-6}>
             <div className='main__designe-title'>
               Design
               <div className='main__designe-subtitle main__designe-ui'>
@@ -63,12 +63,14 @@ const MainDesigne: React.FC = () => {
       <Parallax speed={3} className="parallax-block fade-in-right">
         <div className='main__designe-block designe__block-interior'>
           <div className='main__designe-head'>
+          <Parallax className='parallax-block__designe-title' speed={-6}>
             <div className='main__designe-title'>
               Design
               <div className='main__designe-subtitle'>
                 Interior
               </div>
             </div>
+            </Parallax>
           </div>
           <div className='main__designe-links'>
             <div className='main__designe-link purple-link'>
