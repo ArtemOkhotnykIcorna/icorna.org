@@ -14,16 +14,14 @@ $hover-bg: #e7333f; // Darker background color on hover
   display: flex;
   justify-content: center;
   align-items: center;
-  color: $second; // Text color
-  filter: url('#gooey'); // Apply gooey filter
+  color: $second;
+  filter: url('#gooey');
   position: relative;
-  background-color: $prime; // Button background color
-  border-radius: 13px; // Add border radius for rounded corners
-  cursor: pointer; // Change cursor to pointer on hover
+  background-color: $prime;
+  border-radius: 13px;
+  cursor: pointer;
   max-width: 253px;
   transition: background-color 0.3s ease, transform 0.2s ease;
-
-  // Add 3D shadow effect
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 
   &:focus {
@@ -31,17 +29,15 @@ $hover-bg: #e7333f; // Darker background color on hover
   }
 
   &:hover {
-    background-color: $hover-bg; // Darker background on hover
-    transform: translateY(-4px); // Slightly lift the button for 3D effect
-    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3); // Add a larger shadow for 3D effect
+    background-color: $hover-bg;
+    transform: translateY(-4px);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
 
-    // Disable bubble animation on hover by setting their opacity to 0
     .bubbles {
       opacity: 0;
     }
   }
 
-  // Container for bubbles
   .bubbles {
     position: absolute;
     top: 0;
@@ -49,141 +45,197 @@ $hover-bg: #e7333f; // Darker background color on hover
     bottom: 0;
     right: 0;
 
-    // Define styles for individual bubbles
     .bubble {
-      background-color: $prime; // Bubble background color
-      // Define elongated bubbles using asymmetric border-radius
-      border-radius: 50% 50% 25% 25%; // Create an oval/elongated shape
+      background-color: $prime;
+      border-radius: 50% 50% 25% 25%;
       position: absolute;
       top: 0;
       display: block;
       z-index: -1;
 
-      // Generate multiple bubbles with unique animations
       @for $bubble from 1 through 10 {
         &:nth-child(#{$bubble}) {
-          $width: 20px; // Define bubble width
-          $height: 50px; // Define bubble height for elongation
-          left: #{random(100) + 50}px; // Randomize horizontal position across the full width
+          $width: 20px;
+          $height: 50px;
+          left: #{random(100) + 50}px;
           width: $width;
-          height: $height; // Elongate the bubbles vertically
-          animation: move-#{$bubble} #{2 + $bubble * 0.02}s infinite; // Define animation duration
-          animation-delay: #{$bubble * 0.2}s; // Delay for each bubble
-          opacity: 1; // Ensure bubbles are visible by default
+          height: $height;
+          animation: move-#{$bubble} #{2 + $bubble * 0.02}s infinite;
+          animation-delay: #{$bubble * 0.2}s;
+          opacity: 1;
         }
       }
     }
   }
 }
 
-// Animations for bubbles moving downwards
 @for $bubble from 1 through 10 {
   @keyframes move-#{$bubble} {
     0% {
-      transform: translateY(0); // Start at the top (default position)
-      opacity: 1; // Fully visible
+      transform: translateY(0);
+      opacity: 1;
     }
     100% {
-      transform: translateY(100px); // Move downwards by 100px (you can adjust this value)
-      opacity: 0; // Fade out as it moves down
+      transform: translateY(100px);
+      opacity: 0;
     }
   }
 }
 
-
-.main__web{
-    margin-top: 20px;
-    background: url(../../../image/MainPage/MainBgWeb.png);
-    min-height: 100vh;
-  overflow: hidden;
-    width: 100%;
-    padding-left: 80px;
-    background-size: cover;
-    display: flex;
-    gap: 20px;
-    color: #fff;
-    flex-direction: column;
-    font-weight: 300;
-    .main__web-title{
-        display: flex;
-        height: 100%;
-        flex-direction: column;
-        justify-content: center;
-        font-size: 96px;
-        span{
-            font-size: 200px;
-        }
-    }
-    .main__web-subtitle{
-        display: flex;
-        flex-direction: column;
-        padding-right: 35px;
-        font-size: 40px;
-        text-align: right;
-        align-self: flex-end;
-        span{
-            font-size: 64px;
-            color: #f14902;
-        }
-    }
-    .main__web-link{
-        font-size: 16px;
-        color: #e4f3f1;
-        align-self: flex-end;
-        padding-right: 35px;
-        position: relative;
-        padding-bottom: 25px;
-        text-align: right;
-        a{
-            transition: all 0.3s ease;
-            cursor: pointer;
-            &:hover{
-            
-                color:  #f14902;
-            }
-        }
-        
-    }
+// Эффект проявления для всех элементов
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInMoveUp 1s ease-out forwards;
 }
-.main__web::before {
-    content: ''; 
-    position: absolute;
-    top: 20px;
-    left: 0;
-    width: 100%;
+
+// Добавляем задержку для разных элементов
+.delay-1 {
+  animation-delay: 0.3s;
+}
+.delay-2 {
+  animation-delay: 0.6s;
+}
+.delay-3 {
+  animation-delay: 0.9s;
+}
+
+@keyframes fadeInMoveUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px); // Текст выезжает снизу
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0); // Текст на месте
+  }
+}
+
+.main__web {
+  margin-top: 40px;
+  background: url(../../../image/MainPage/MainBgWeb.png);
+  min-height: 100vh;
+  overflow: hidden;
+  width: 100%;
+  padding-left: 80px;
+  background-size: cover;
+  display: flex;
+  gap: 40px;
+  color: #fff;
+  flex-direction: column;
+  font-weight: 300;
+
+  .main__web-title {
+    display: flex;
     height: 100%;
-    background: rgba(66, 66, 66, 0.3);
-    z-index: 1;
+    flex-direction: column;
+    justify-content: center;
+    font-size: 96px;
+    span {
+      font-size: 200px;
+    }
+  }
+
+  .main__web-subtitle {
+    display: flex;
+    flex-direction: column;
+    padding-right: 35px;
+    font-size: 40px;
+    text-align: right;
+    align-self: flex-end;
+    span {
+      font-size: 64px;
+      color: #f14902;
+    }
+  }
+
+  .main__web-link {
+    font-size: 16px;
+    color: #e4f3f1;
+    align-self: flex-end;
+    padding-right: 35px;
+    position: relative;
+    padding-bottom: 25px;
+    text-align: right;
+    a {
+      transition: all 0.3s ease;
+      cursor: pointer;
+      &:hover {
+        color: #f14902;
+      }
+    }
+  }
+}
+
+.main__web::before {
+  content: '';
+  position: absolute;
+  top: 40px;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(66, 66, 66, 0.3);
+  z-index: 1;
 }
 
 .main__web * {
-    position: relative; 
-    z-index: 2; 
+  position: relative;
+  z-index: 2;
 }
+
+// Исправление медиа-запросов
 @media (max-width: 768px) {
-    .main__web {
-        height: 500px;
-        padding-left: 40px;
-        .main__web-title{
-            font-size: 45px;
-            span{
-                font-size: 70px;
-            }
-        }
-        .main__web-subtitle{
-            font-size: 30px;
-            span{
-                font-size: 40px;
-            }
-        }
-        
+  .main__web {
+    justify-content: space-around;
+    padding-left: 40px;
+    .main__web-title {
+      font-size: 60px;
+      span {
+        font-size: 80px;
+      }
     }
-    .main__web::before {
-        max-height: 500px;
+    .main__web-subtitle {
+      font-size: 30px;
+      span {
+        font-size: 40px;
+      }
     }
+  }
+  #gooey-button{
+    font-size: 26px;
+  }
 }
-@media (max-width: 768px) {
+@media (max-width: 450px) {
     .main__web {
         padding-left: 20px;
+      .main__web-title {
+        font-size: 50px !important;
+        span {
+          font-size: 60px !important;
+        }
+      }
+      .main__web-subtitle {
+        font-size: 30px;
+        span {
+          font-size: 40px;
+        }
+      }
     }
-}
+  }
+  @media (max-width: 345px) {
+    .main__web {
+        padding-left: 10px;
+      .main__web-title {
+        font-size: 45px !important;
+        span {
+          font-size: 55px !important;
+        }
+      }
+      .main__web-subtitle {
+        font-size: 25px;
+        span {
+          font-size: 35px;
+        }
+      }
+    }
+  }

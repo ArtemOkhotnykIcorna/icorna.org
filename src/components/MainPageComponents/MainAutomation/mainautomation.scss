@@ -4,10 +4,12 @@
     mask: url($url);
     -webkit-mask-size: $x1 $y1;
     mask-size: $x1 $y1;
-    border: $bor;
+    -webkit-mask-repeat: no-repeat; // Prevent repeated patterns
+    mask-repeat: no-repeat; // Ensure no repeat of the mask
+    border:$bor ;
     color: $col;
-    transition: background-color 0.3s ease; // Плавный переход фона
-  }
+    transition: background-color 0.3s ease; // Smooth background transition
+}
 .main__automation{
     background: url(../../../image//MainPage/MainBgAutomation.png);
     width: 100%;
@@ -17,9 +19,16 @@
     background-repeat: no-repeat;
     background-size: cover;
     display: flex;
+    opacity: 0;
     align-items: center;
     justify-content: space-between;
     flex-direction: column;
+    transform: translateY(50px);
+    transition: opacity 1s ease-in-out, transform .8s ease-in-out;
+    &.is-visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
     .parallax-title{
         display: flex;
             flex-direction: column;
@@ -60,24 +69,26 @@
             margin-top: 20px;
             width: 253px;
             height: 51px;
-            overflow: hidden;
             font-weight: 300;
             font-size: 32px;
             color: #fff;
             transition:all 0.9s ease;
             border-radius: 13px;
+            overflow: hidden;
             background-color: #f14a02;
             button {
-             width: 101%;
-             height: 100%;
+             position: absolute;
+             top: -2px;
+             width: 101%; // Кнопка займет всю ширину контейнера
+             height: 55px;
              font-weight: 300;
-             font-size: 32px;
              @include button(#141130, "https://raw.githubusercontent.com/pizza3/asset/master/natureSmaller.png",
              7100%,
              100%,
              none,
              #fff);
              cursor: pointer;
+             
              -webkit-animation: ani2 0.9s steps(70) forwards;
              animation: ani2 0.9s steps(70) forwards;
              &:hover {
@@ -115,8 +126,8 @@
     color: #fff;
     align-items: center;
     justify-content: center;
-    width: 100%;
-    height: 100%;
+    width: 101%;
+    height: 101%;
     font-weight: 300;
     font-size: 32px;
     border-radius: 13px;
@@ -190,79 +201,109 @@
 }
 @media (max-width: 960px) {
     .main__automation{
-        .main__automation-title{
-            font-size: 130px;
-            .main__automation-subtitle{
-                font-size: 34px;
-                div{
-                    span{
-                        font-size: 38px;
+        .parallax-title{
+            .main__automation-title{
+                font-size: 130px;
+                .main__automation-subtitle{
+                    font-size: 34px;
+                    div{
+                        span{
+                            font-size: 38px;
+                        }
                     }
+                    
                 }
-                
-            }
-        } 
+            } 
+        }
+       
     }
 }
 @media (max-width: 780px) {
     .main__automation{
-        height:500px;
         padding: 50px 20px;
-        .main__automation-title{
-            font-size: 100px;
-            .main__automation-subtitle{
-                font-size: 30px;
-                div{
-                    span{
-                        font-size: 34px;
+        .parallax-title{
+            .main__automation-title{
+                font-size: 100px;
+                .main__automation-subtitle{
+                    font-size: 30px;
+                    div{
+                        span{
+                            font-size: 34px;
+                        }
                     }
+                    
                 }
-                
+            } 
+            .button-container-3{
+                width: 205px;
+                height: 40px;
+                font-size: 25px;
+                button{
+                    height: 44px;
+                }
             }
-        } 
+            .mas{
+                font-size: 25px;
+            }
+        }
+        
     }
 }
 @media (max-width: 600px) {
     .main__automation{
-        .main__automation-title{
-            font-size: 80px;
-            .main__automation-subtitle{
-                font-size: 25px;
-                div{
-                    span{
-                        font-size: 27px;
+        .parallax-title{
+            .main__automation-title{
+                font-size: 80px;
+                .main__automation-subtitle{
+                    font-size: 25px;
+                    div{
+                        span{
+                            font-size: 27px;
+                        }
                     }
+                    
                 }
-                
             }
-        } 
-        .main__automation-link{
-            margin-bottom:30px;
-            margin-left: 30px;
         }
+        .parallax-link{
+            .main__automation-link{
+                margin-bottom:30px;
+                margin-left: 30px;
+            }
+        }
+        
     }
 }
 @media (max-width: 490px) {
     .main__automation{
-        .main__automation-title{
-            font-size: 60px;
-            .main__automation-subtitle{
-                font-size: 20px;
-                div{
-                    span{
-                        font-size: 23px;
+        .parallax-title{
+            .main__automation-title{
+                font-size: 60px;
+                .main__automation-subtitle{
+                    font-size: 20px;
+                    div{
+                        span{
+                            font-size: 23px;
+                        }
                     }
+                    
                 }
-                
-            }
-        } 
+            } 
+        }
+        
     }
 }
 @media (max-width: 360px) {
     .main__automation{
-        .main__automation-title{
-            font-size: 55px;
-            
-        } 
+        .parallax-title{
+            .main__automation-title{
+                font-size: 55px;
+                
+            } 
+            .button-container-3{
+                width: 170px;
+            }
+        }
+        
     }
 }

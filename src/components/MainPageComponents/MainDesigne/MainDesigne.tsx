@@ -63,7 +63,7 @@ const MainDesigne: React.FC = () => {
       <Parallax speed={3} className="parallax-block fade-in-right">
         <div className='main__designe-block designe__block-interior'>
           <div className='main__designe-head'>
-          <Parallax className='parallax-block__designe-title' speed={-6}>
+          <Parallax className='parallax-block__designe-title' speed={6}>
             <div className='main__designe-title'>
               Design
               <div className='main__designe-subtitle'>

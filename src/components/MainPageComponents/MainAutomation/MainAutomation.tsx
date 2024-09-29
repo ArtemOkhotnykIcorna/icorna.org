@@ -1,14 +1,36 @@
 'use client';
 
-import React from 'react';
+import React  ,{ useEffect}from 'react';
 import { Parallax } from 'react-scroll-parallax';
 import './mainautomation.scss';
 
 const MainAutomation: React.FC = () => {
+  useEffect(() => {
+    const handleScroll = () => {
+      const elements = document.querySelectorAll('.main__automation');
+      elements.forEach(element => {
+        const rect = element.getBoundingClientRect();
+
+        // Добавляем проверку, чтобы элемент стал видимым, когда верхняя часть попадет в область видимости
+        if (rect.top < window.innerHeight && rect.bottom > 0) {
+          element.classList.add('is-visible');
+        } else {
+          element.classList.remove('is-visible');
+        }
+      });
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    handleScroll();
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
   return (
     <div className='main__automation'>
       {/* Параллакс для заголовка с className и кастомными стилями */}
-      <Parallax speed={-3} className="parallax-title">
+      <Parallax speed={-9} className="parallax-title">
         <div className='main__automation-title'>
           Automation
           <div className='main__automation-subtitle'>
@@ -27,7 +49,7 @@ const MainAutomation: React.FC = () => {
       </Parallax>
 
       {/* Параллакс для ссылки с className */}
-      <Parallax speed={-1} className="parallax-link">
+      <Parallax speed={-4} className="parallax-link">
         <div className='main__automation-link'>
           <a href="#">
             Read More {'>'}
