@@ -118,6 +118,7 @@ $hover-bg: #e7333f;
   min-height: 100vh; /* Можно оставить, если фон должен занимать всю высоту экрана */
   width: 100%;
   padding-left: 80px;
+    gap: 40px;
   display: flex;
   color: #fff;
   flex-direction: column;
@@ -138,20 +139,21 @@ $hover-bg: #e7333f;
     height: 100%;
     flex-direction: column;
     justify-content: center;
-    font-size: 96px;
-    span {
-      font-size: 200px;
-    }
+    font-size: 13vh; /* Шрифт будет изменяться в зависимости от высоты экрана */
+  span {
+    font-size: 23vh; /* Шрифт внутри span также изменяется относительно высоты экрана */
+  }
+
   }
   .main__web-subtitle {
     display: flex;
     flex-direction: column;
     padding-right: 35px;
-    font-size: 40px;
+    font-size: 5vh;
     text-align: right;
     align-self: flex-end;
     span {
-      font-size: 64px;
+      font-size: 8vh;
       color: #fc5913;
     }
   }
@@ -190,24 +192,24 @@ $hover-bg: #e7333f;
   z-index: 2;
 }
 
-@media (max-width: 1340px) {
-  .main__web {
-    justify-content: space-around;
-    padding-left: 40px;
-    .main__web-title {
-      font-size: 76px;
-      span {
-        font-size: 160px;
-      }
-    }
-    .main__web-subtitle {
-      font-size: 30px;
-      span {
-        font-size: 40px;
-      }
-    }
-  }
-}
+// @media (max-width: 1340px) {
+//   .main__web {
+//     justify-content: space-around;
+//     padding-left: 40px;
+//     .main__web-title {
+//       font-size: 76px;
+//       span {
+//         font-size: 160px;
+//       }
+//     }
+//     .main__web-subtitle {
+//       font-size: 30px;
+//       span {
+//         font-size: 40px;
+//       }
+//     }
+//   }
+// }
 @media (max-width: 768px) {
   .main__web {
     justify-content: space-around;
