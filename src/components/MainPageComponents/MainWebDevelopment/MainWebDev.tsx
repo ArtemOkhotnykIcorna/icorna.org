@@ -6,7 +6,7 @@ import './mainwebdev.scss';
 import Image from 'next/image';
 import BG from '@/image/MainPage/MainBgWeb.png'
 const MainWebDev: React.FC = () => {
-  const [parallaxSpeed, setParallaxSpeed] = useState(-13);
+  const [parallaxSpeed, setParallaxSpeed] = useState(-7);
 
   useEffect(() => {
     const handleResize = () => {
@@ -14,7 +14,7 @@ const MainWebDev: React.FC = () => {
       if (screenWidth <= 768) {
         setParallaxSpeed(-7);
       } else {
-        setParallaxSpeed(-13);
+        setParallaxSpeed(-3);
       }
     };
     handleResize();
@@ -26,21 +26,19 @@ const MainWebDev: React.FC = () => {
 
   return (
     <div className='main__web'>
-      <Image 
+     <Image 
         src={BG} 
-        placeholder="blur"
         alt="Website development company" 
-        // layout="fill" // Этот параметр делает изображение фоновым, занимая весь контейнер
-        objectFit="cover" // Контролирует, как изображение масштабируется внутри контейнера
+        fill // Используйте новый формат атрибута fill
         className="main__web-bg"
-        priority={true} // Если важно загружать это изображение первым
+        priority={true} 
       />
-      <Parallax speed={-10}>
+      <Parallax speed={-9}>
         <div className='main__web-title fade-in'>
           <span>Web</span> Development
         </div>
       </Parallax>
-      <Parallax speed={-10}>
+      <Parallax speed={-9}>
         <svg className='main__web-svg' xmlns="http://www.w3.org/2000/svg" version="1.1">
           <defs>
             <filter id="gooey">
@@ -61,7 +59,7 @@ const MainWebDev: React.FC = () => {
           </span>
         </button>
       </Parallax>
-      <Parallax speed={parallaxSpeed}>
+      <Parallax style={{paddingBottom:'40px'}} speed={parallaxSpeed}>
         <div className='main__web-subtitle fade-in delay-1'>
           that&apos;s where the <span>business</span> starts
         </div>

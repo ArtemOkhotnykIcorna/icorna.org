@@ -1,13 +1,13 @@
-$prime: #f44a56; // Background color for bubbles and button
-$second: #ffffff; // Color for text
-$hover-bg: #e7333f; // Darker background color on hover
+$prime: #f44a56;
+$second: #ffffff; 
+$hover-bg: #e7333f; 
 
 .main__web-svg {
   position: absolute !important;
 }
 
 #gooey-button {
-  margin-top: 40px;
+  margin-top: 55px;
   font-size: 2rem;
   padding: 10px 30px;
   border: none;
@@ -112,26 +112,26 @@ $hover-bg: #e7333f; // Darker background color on hover
   }
 }
 
+
 .main__web {
-  margin-top: 40px;
-  min-height: 100vh;
-  overflow: hidden;
+  margin-top: 0; /* Убираем лишний отступ сверху */
+  min-height: 100vh; /* Можно оставить, если фон должен занимать всю высоту экрана */
   width: 100%;
   padding-left: 80px;
-  background-size: cover;
   display: flex;
-  gap: 40px;
   color: #fff;
   flex-direction: column;
   font-weight: 300;
+
+
   .main__web-bg {
     position: absolute;
-    top: 40px;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    z-index: 0;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh; /* Задаем высоту экрана */
+  object-fit: cover;
+  z-index: 0;
   }
   .main__web-title {
     display: flex;
@@ -143,7 +143,6 @@ $hover-bg: #e7333f; // Darker background color on hover
       font-size: 200px;
     }
   }
-
   .main__web-subtitle {
     display: flex;
     flex-direction: column;
@@ -163,7 +162,7 @@ $hover-bg: #e7333f; // Darker background color on hover
     align-self: flex-end;
     padding-right: 35px;
     position: relative;
-    padding-bottom: 25px;
+    // padding-bottom: 25px;
     text-align: right;
     a {
       transition: all 0.3s ease;
@@ -178,7 +177,7 @@ $hover-bg: #e7333f; // Darker background color on hover
 .main__web::before {
   content: '';
   position: absolute;
-  top: 40px;
+  top: 0; /* Измените top на 0, чтобы не было отступов */
   left: 0;
   width: 100%;
   height: 100%;
@@ -191,7 +190,24 @@ $hover-bg: #e7333f; // Darker background color on hover
   z-index: 2;
 }
 
-// Исправление медиа-запросов
+@media (max-width: 1340px) {
+  .main__web {
+    justify-content: space-around;
+    padding-left: 40px;
+    .main__web-title {
+      font-size: 76px;
+      span {
+        font-size: 160px;
+      }
+    }
+    .main__web-subtitle {
+      font-size: 30px;
+      span {
+        font-size: 40px;
+      }
+    }
+  }
+}
 @media (max-width: 768px) {
   .main__web {
     justify-content: space-around;
@@ -211,6 +227,7 @@ $hover-bg: #e7333f; // Darker background color on hover
   }
   #gooey-button{
     font-size: 26px;
+    margin-top: 30px;
   }
 }
 @media (max-width: 450px) {

@@ -40,7 +40,7 @@ const MainAutomation: React.FC = () => {
         priority={true} // Если важно загружать это изображение первым
       />
       {/* Параллакс для заголовка с className и кастомными стилями */}
-      <Parallax speed={-9} className="parallax-title">
+      <Parallax speed={-5} className="parallax-title">
         <div className='main__automation-title'>
           Automation
           <div className='main__automation-subtitle'>
