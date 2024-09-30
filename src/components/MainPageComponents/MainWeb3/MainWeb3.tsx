@@ -3,7 +3,8 @@
 import React, { useEffect} from 'react';
 import { Parallax } from 'react-scroll-parallax';
 import './mainweb3.scss';
-
+import Image from 'next/image';
+import BG from '@/image/MainPage/MainBgWeb3.png'
 const MainWeb3: React.FC = () => {
   useEffect(() => {
     const handleScroll = () => {
@@ -30,6 +31,15 @@ const MainWeb3: React.FC = () => {
 
   return (
     <div className='main__web3'>
+      <Image 
+        src={BG} 
+        placeholder="blur"
+        alt="Creation of web3 projects" 
+        layout="fill" // Этот параметр делает изображение фоновым, занимая весь контейнер
+        objectFit="cover" // Контролирует, как изображение масштабируется внутри контейнера
+        className="main__web-bg"
+        priority={true} // Если важно загружать это изображение первым
+      />
       <Parallax speed={-8}>
         <div className='main__web3-title'>
           Blockchain/Web3 <span>Development</span>
@@ -37,7 +47,7 @@ const MainWeb3: React.FC = () => {
       </Parallax>
       <Parallax speed={-6}>
         <div className='main__web3-button'>
-          <span>Contact Us</span>
+          <a href="https://t.me/artem_icorna">Contact Us</a>
           <div className="wave"></div>
         </div>
       </Parallax>

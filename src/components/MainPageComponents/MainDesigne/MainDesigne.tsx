@@ -1,7 +1,9 @@
 import React, { useEffect } from 'react';
 import { Parallax } from 'react-scroll-parallax';
 import './maindesigne.scss';
-
+import Image from 'next/image';
+import BG1 from '@/image/MainPage/MainBgDesigne1.png'
+import BG2 from '@/image/MainPage/MainBgDesigne2.png'
 const MainDesigne: React.FC = () => {
   useEffect(() => {
     const handleScroll = () => {
@@ -31,6 +33,15 @@ const MainDesigne: React.FC = () => {
       {/* Параллакс для блока UI/UX с анимацией */}
       <Parallax speed={-3} className="parallax-block fade-in-left">
         <div className='main__designe-block designe__block-ui'>
+          <Image 
+            src={BG1} 
+            placeholder="blur"
+            alt="UI/UX design for blockchain projects" 
+            layout="fill" 
+            objectFit="cover" 
+            className="main__web-bg"
+            priority={true} 
+          />
           <div className='main__designe-head'>
           <Parallax className='parallax-block__designe-title' speed={-6}>
             <div className='main__designe-title'>
@@ -46,12 +57,12 @@ const MainDesigne: React.FC = () => {
           </div>
           <div className='main__designe-links'>
             <div className='main__designe-link'>
-              <a href="#">
+              <a href="https://t.me/artem_icorna">
                 <span>C</span><span>o</span><span>n</span><span>t</span><span>a</span><span>c</span><span>t</span> <span>U</span><span>s</span>
               </a>
             </div>
             <div className='main__designe-more'>
-              <a href="#">
+              <a href="https://www.linkedin.com/company/icorna/?viewAsMember=true">
                 <span>Read More</span>
               </a>
             </div>
@@ -62,6 +73,15 @@ const MainDesigne: React.FC = () => {
       {/* Параллакс для блока Interior с анимацией */}
       <Parallax speed={3} className="parallax-block fade-in-right">
         <div className='main__designe-block designe__block-interior'>
+          <Image 
+            src={BG2} 
+            placeholder="blur"
+            alt="Design Interior" 
+            layout="fill" // Этот параметр делает изображение фоновым, занимая весь контейнер
+            objectFit="cover" // Контролирует, как изображение масштабируется внутри контейнера
+            className="main__web-bg"
+            priority={true} // Если важно загружать это изображение первым
+          />
           <div className='main__designe-head'>
           <Parallax className='parallax-block__designe-title' speed={6}>
             <div className='main__designe-title'>
@@ -74,12 +94,12 @@ const MainDesigne: React.FC = () => {
           </div>
           <div className='main__designe-links'>
             <div className='main__designe-link purple-link'>
-              <a href="#">
+              <a href="https://t.me/artem_icorna">
                 <span>C</span><span>o</span><span>n</span><span>t</span><span>a</span><span>c</span><span>t</span> <span>U</span><span>s</span>
               </a>
             </div>
             <div className='main__designe-more purple-more'>
-              <a href="#">
+              <a href="https://www.linkedin.com/company/icorna/?viewAsMember=true">
                 <span>Read More</span>
               </a>
             </div>

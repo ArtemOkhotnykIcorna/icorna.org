@@ -1,11 +1,23 @@
 'use client';
 
 import React, { useState, useEffect, useRef } from 'react';
-import Link from 'next/link';
 import logo from '@/image/logo.svg';
 import './header.scss';
 
-const Header: React.FC = () => {
+interface HeaderProps {
+    scrollToSection: (section: React.RefObject<HTMLDivElement>) => void;
+    webDevRef: React.RefObject<HTMLDivElement>;
+    web3Ref: React.RefObject<HTMLDivElement>;
+    designRef: React.RefObject<HTMLDivElement>;
+    automationRef: React.RefObject<HTMLDivElement>;
+}
+
+const Header: React.FC<HeaderProps> = ({
+    webDevRef,
+    web3Ref,
+    designRef,
+    automationRef
+}) => {
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const menuRef = useRef<HTMLDivElement>(null);
@@ -43,31 +55,28 @@ const Header: React.FC = () => {
         setIsMenuOpen(prevState => !prevState); // Меняем состояние на противоположное
     };
 
+    // Функция для плавного скролла к секции
+    const handleScrollToSection = (ref: React.RefObject<HTMLDivElement>) => {
+        if (ref.current) {
+            ref.current.scrollIntoView({ behavior: 'smooth' });
+            setIsMenuOpen(false); // Закрываем меню после клика на ссылку
+        }
+    };
+
     return (
         <>
             <div className={`header ${isScrolled ? 'header--scrolled' : ''} ${isMenuOpen ? 'header--menu-open' : ''}`}>
                 <div className="header__logo" ref={logoRef} onClick={toggleMenu}>
                     <img
                         src={logo.src}
-                        alt="Logo"
+                        alt="IcornA"
                     />
                 </div>
                 <nav ref={menuRef} className={`header__links ${isScrolled ? 'header--scrolled' : ''} ${isMenuOpen ? 'header__links--open' : ''}`}>
-                    <Link href="/about" className="header__link">
-                        About
-                    </Link>
-                    <Link href="/web-development" className="header__link">
-                        Web Development
-                    </Link>
-                    <Link href="/blockchain-development" className="header__link">
-                        Blockchain/Web3 Development
-                    </Link>
-                    <Link href="/design" className="header__link">
-                        Design
-                    </Link>
-                    <Link href="/automation" className="header__link">
-                        Automation
-                    </Link>
+                    <a className="header__link" onClick={() => handleScrollToSection(webDevRef)}>Web Development</a>
+                    <a className="header__link" onClick={() => handleScrollToSection(web3Ref)}>Blockchain/Web3 Development</a>
+                    <a className="header__link" onClick={() => handleScrollToSection(designRef)}>Design</a>
+                    <a className="header__link" onClick={() => handleScrollToSection(automationRef)}>Automation</a>
                 </nav>
             </div>
             {/* Overlay layer for blur effect */}

@@ -1,4 +1,4 @@
-@mixin button($bcolor, $url, $x1, $y1, $bor, $col) {
+@mixin a($bcolor, $url, $x1, $y1, $bor, $col) {
     background-color: $bcolor;
     -webkit-mask: url($url);
     mask: url($url);
@@ -76,13 +76,16 @@
             border-radius: 13px;
             overflow: hidden;
             background-color: #f14a02;
-            button {
+            a {
+             display: flex;
+             align-items: center;
+             justify-content: center;
              position: absolute;
              top: -2px;
              width: 101%; // Кнопка займет всю ширину контейнера
              height: 55px;
              font-weight: 300;
-             @include button(#141130, "https://raw.githubusercontent.com/pizza3/asset/master/natureSmaller.png",
+             @include a(#141130, "https://raw.githubusercontent.com/pizza3/asset/master/natureSmaller.png",
              7100%,
              100%,
              none,
@@ -238,7 +241,7 @@
                 width: 205px;
                 height: 40px;
                 font-size: 25px;
-                button{
+                a{
                     height: 44px;
                 }
             }

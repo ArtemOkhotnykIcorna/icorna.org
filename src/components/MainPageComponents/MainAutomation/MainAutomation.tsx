@@ -3,7 +3,8 @@
 import React  ,{ useEffect}from 'react';
 import { Parallax } from 'react-scroll-parallax';
 import './mainautomation.scss';
-
+import Image from 'next/image';
+import BG from '@/image/MainPage/MainBgAutomation.png'
 const MainAutomation: React.FC = () => {
   useEffect(() => {
     const handleScroll = () => {
@@ -29,6 +30,15 @@ const MainAutomation: React.FC = () => {
   }, []);
   return (
     <div className='main__automation'>
+      <Image 
+        src={BG} 
+        placeholder="blur"
+        alt="Accounting automation" 
+        layout="fill" // Этот параметр делает изображение фоновым, занимая весь контейнер
+        objectFit="cover" // Контролирует, как изображение масштабируется внутри контейнера
+        className="main__web-bg"
+        priority={true} // Если важно загружать это изображение первым
+      />
       {/* Параллакс для заголовка с className и кастомными стилями */}
       <Parallax speed={-9} className="parallax-title">
         <div className='main__automation-title'>
@@ -44,14 +54,14 @@ const MainAutomation: React.FC = () => {
         </div>
         <div className="button-container-3">
           <span className="mas">Contact us</span>
-          <button type="button" name="Hover">Contact us</button>
+          <a href="https://t.me/artem_icorna">Contact us</a>
         </div>
       </Parallax>
 
       {/* Параллакс для ссылки с className */}
       <Parallax speed={-4} className="parallax-link">
         <div className='main__automation-link'>
-          <a href="#">
+          <a href="https://www.linkedin.com/company/icorna/?viewAsMember=true">
             Read More {'>'}
           </a>
         </div>
