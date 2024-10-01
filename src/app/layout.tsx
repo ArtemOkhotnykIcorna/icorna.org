@@ -35,9 +35,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <title>{String(metadata.title ?? 'IcornA')}</title>
         <meta name="description" content={metadata.description || "Update your business now!"} />
         <meta name="keywords" content={keywordsContent || ""} />
-        
-        {/* Add favicon */}
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="./favicon.ico" />
 
         {/* Google Tag Manager */}
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-TV7R0P6EDQ"></script>
