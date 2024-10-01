@@ -1,3 +1,4 @@
+
 'use client';
 
 import dynamic from 'next/dynamic';
@@ -12,7 +13,8 @@ const MainDesigne = dynamic(() => import('@/components/MainPageComponents/MainDe
 const MainAutomation = dynamic(() => import('@/components/MainPageComponents/MainAutomation/MainAutomation'), { ssr: false });
 const Header = dynamic(() => import('@/components/Header/Header'), { ssr: false });
 const Footer = dynamic(() => import('@/components/Footer/Footer'), { ssr: false });
-
+import IcornA from '@/image/logo.svg'
+import Head from 'next/head';
 const MainPage = () => {
   const webDevRef = useRef<HTMLDivElement>(null);
   const web3Ref = useRef<HTMLDivElement>(null);
@@ -25,13 +27,21 @@ const MainPage = () => {
   };
 
   return (
+    
     <ParallaxProvider>
+      <Head>
+       <title>IcornA</title>
+       <meta name="description" content={"Update your business now!"} />
+        <link rel="preload" href={IcornA.src} as="image" />
+        <link rel="preconnect" href="https://your-cdn.com" />
+     </Head>
       <Header
         scrollToSection={scrollToSection}
         webDevRef={webDevRef}
         web3Ref={web3Ref}
         designRef={designRef}
         automationRef={automationRef}
+        
       />
       <div className="main">
         <div ref={webDevRef}>
