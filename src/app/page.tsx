@@ -11,6 +11,7 @@ const MainWeb3 = dynamic(() => import('@/components/MainPageComponents/MainWeb3/
 const MainDesigne = dynamic(() => import('@/components/MainPageComponents/MainDesigne/MainDesigne'), { ssr: false });
 const MainAutomation = dynamic(() => import('@/components/MainPageComponents/MainAutomation/MainAutomation'), { ssr: false });
 const Header = dynamic(() => import('@/components/Header/Header'), { ssr: false });
+const Footer = dynamic(() => import('@/components/Footer/Footer'), { ssr: false });
 
 const MainPage = () => {
   const webDevRef = useRef<HTMLDivElement>(null);
@@ -46,6 +47,7 @@ const MainPage = () => {
           <MainAutomation />
         </div>
       </div>
+      <Footer />
     </ParallaxProvider>
   );
 };

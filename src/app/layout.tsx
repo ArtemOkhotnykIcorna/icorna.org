@@ -3,7 +3,6 @@ import type { Metadata } from "next";
 import dynamic from 'next/dynamic';
 import "./globals.css";
 
-const Footer = dynamic(() => import('@/components/Footer/Footer'), { ssr: false });
 
 export const metadata: Metadata = {
   title: "IcornA",
@@ -26,16 +25,21 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   const keywordsContent = Array.isArray(metadata.keywords)
-  ? metadata.keywords.join(", ")
-  : metadata.keywords;
+    ? metadata.keywords.join(", ")
+    : metadata.keywords;
 
   return (
     <html lang="en">
       
       <head>
-        <title>{'IcornA'}</title>
-        <meta name="description" content='Update your business now!' />
+      <title>{String(metadata.title ?? 'IcornA')}</title>
+        <meta name="description" content={metadata.description || "Update your business now!"} />
         <meta name="keywords" content={keywordsContent || ""} />
+        
+        {/* Add favicon */}
+        <link rel="icon" href="/favicon.ico" />
+
+        {/* Google Tag Manager */}
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-TV7R0P6EDQ"></script>
         <script
           dangerouslySetInnerHTML={{
@@ -50,7 +54,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </head>
       <body>
         {children}
-        <Footer />
+        
       </body>
     </html>
   );
