@@ -29,9 +29,11 @@ const MainWebDev: React.FC = () => {
      <Image 
         src={BG} 
         alt="Website development company" 
-        fill // Используйте новый формат атрибута fill
+        fill 
         className="main__web-bg"
         priority={true} 
+        placeholder="blur"
+         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
       />
       <Parallax speed={-9}>
         <div className='main__web-title fade-in'>

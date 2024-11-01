@@ -31,7 +31,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en">
       
       <head>
-      <title>{String(metadata.title ?? 'IcornA')}</title>
+      <title>{'IcornA'}</title>
         <meta name="description" content={metadata.description || "Update your business now!"} />
         <meta name="keywords" content={keywordsContent || ""} />
         <link rel="icon" href="./favicon.ico" />
