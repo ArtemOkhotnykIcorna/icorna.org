@@ -44,6 +44,7 @@ const MainPage = () => {
         web3Ref={web3Ref}
         designRef={designRef}
         automationRef={automationRef}
+        handleOpen={handleOpen}
       />
       <div className="main">
         <div ref={webDevRef}>
@@ -58,13 +59,6 @@ const MainPage = () => {
         <div ref={automationRef}>
           <MainAutomation />
         </div>
-        <button className="contact-button" onClick={handleOpen}>
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
-          Get Free Audit
-        </button>
         {/* Contact Modal */}
         <ContactModal open={modalOpen} handleClose={handleClose} />
       </div>

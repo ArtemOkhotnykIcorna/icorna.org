@@ -10,19 +10,22 @@ interface HeaderProps {
     web3Ref: React.RefObject<HTMLDivElement>;
     designRef: React.RefObject<HTMLDivElement>;
     automationRef: React.RefObject<HTMLDivElement>;
+    handleOpen: () => void;
 }
 
 const Header: React.FC<HeaderProps> = ({
     webDevRef,
     web3Ref,
     designRef,
-    automationRef
+    automationRef,
+    handleOpen
 }) => {
+    const [modalOpen, setModalOpen] = useState(false);
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const menuRef = useRef<HTMLDivElement>(null);
     const logoRef = useRef<HTMLDivElement>(null);
-
+    const handleClose = () => setModalOpen(false);
     useEffect(() => {
         const handleScroll = () => {
             if (window.scrollY > 50) {
@@ -77,7 +80,13 @@ const Header: React.FC<HeaderProps> = ({
                     <a className="header__link" onClick={() => handleScrollToSection(web3Ref)}>Blockchain/Web3 Development</a>
                     <a className="header__link" onClick={() => handleScrollToSection(designRef)}>Design</a>
                     <a className="header__link" onClick={() => handleScrollToSection(automationRef)}>Automation</a>
+                    <button className="contact-button" onClick={handleOpen}>
+                    <div className="corner-top"></div>
+                    <div className="corner-bottom"></div>
+                    Get Free Audit
+                </button>
                 </nav>
+                
             </div>
             {/* Overlay layer for blur effect */}
             {isMenuOpen && <div className="overlay overlay--visible" />}

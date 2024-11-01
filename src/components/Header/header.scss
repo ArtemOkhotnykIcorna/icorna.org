@@ -36,7 +36,7 @@
             }
         }
 
-        @media (max-width: 768px) {
+        @media (max-width: 1108px) {
             display: none;
             width: 100%;
             flex-direction: column;
@@ -73,7 +73,7 @@
         backdrop-filter: blur(8px);
     }
 
-    @media (max-width: 768px) {
+    @media (max-width: 1108px) {
         padding: 10px;
         justify-content: center;
         flex-direction: column;
