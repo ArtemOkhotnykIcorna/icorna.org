@@ -93,10 +93,10 @@ const ContactModal: React.FC<ContactModalProps> = ({ open, handleClose }) => {
             className="modal-select"
           >
             <option value="" disabled>Select Category</option>
-            <option value="General Inquiry">General Inquiry</option>
-            <option value="Support">Support</option>
-            <option value="Partnership">Partnership</option>
-            <option value="Feedback">Feedback</option>
+            <option value="General Inquiry">Web Development</option>
+            <option value="Support">Blockchain/Web3</option>
+            <option value="Partnership">Design</option>
+            <option value="Feedback">Automation</option>
           </select>
           <input
             type="email"
