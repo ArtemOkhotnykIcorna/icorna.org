@@ -22,8 +22,8 @@ const ContactModal: React.FC<ContactModalProps> = ({ open, handleClose }) => {
 
   const handleFormSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
-    const botToken = '7580775169:AAHC1t4RrBwohQAvNUEFgg4P3EdcT1a-EmQ';
-    const chatId = '311673351';
+    const botToken = '7556265122:AAHjj4LQG2RQWSwxP2XZRaTcOU23u6oITQg';
+    const chatId = '6607369381';
     const message = `New Contact Submission:\nName: ${name}\nCompany: ${company}\nCategory: ${category}\nEmail: ${email}`;
 
     try {
