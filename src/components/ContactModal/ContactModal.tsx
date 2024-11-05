@@ -11,6 +11,7 @@ const ContactModal: React.FC<ContactModalProps> = ({ open, handleClose }) => {
   const [name, setName] = useState('');
   const [company, setCompany] = useState('');
   const [category, setCategory] = useState('');
+  const [isFocused, setIsFocused] = useState(false); // Стейт для отслеживания фокуса
 
   // Reference for the hidden checkbox
   const checkboxRef = useRef<HTMLInputElement>(null);
@@ -19,6 +20,9 @@ const ContactModal: React.FC<ContactModalProps> = ({ open, handleClose }) => {
   const handleNameChange = (event: React.ChangeEvent<HTMLInputElement>) => setName(event.target.value);
   const handleCompanyChange = (event: React.ChangeEvent<HTMLInputElement>) => setCompany(event.target.value);
   const handleCategoryChange = (event: React.ChangeEvent<HTMLSelectElement>) => setCategory(event.target.value);
+
+  const handleFocus = () => setIsFocused(true);
+  const handleBlur = () => setIsFocused(false);
 
   const handleFormSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
@@ -39,7 +43,7 @@ const ContactModal: React.FC<ContactModalProps> = ({ open, handleClose }) => {
       });
       console.log("Form Submitted:", { name, company, category, email });
       
-      // Clear form fields after submission, but keep the modal open
+      // Clear form fields after submission
       setName('');
       setCompany('');
       setCategory('');
@@ -66,7 +70,7 @@ const ContactModal: React.FC<ContactModalProps> = ({ open, handleClose }) => {
 
   return (
     <div className={`modal-overlay ${open ? 'open' : ''}`}>
-      <div className="modal-content">
+      <div className={`modal-content ${isFocused ? 'no-floating' : ''}`}>
         <button onClick={handleClose} className="modal-close-button">&times;</button>
         <h2>Get Free Audit</h2>
         <form onSubmit={handleFormSubmit}>
@@ -75,6 +79,8 @@ const ContactModal: React.FC<ContactModalProps> = ({ open, handleClose }) => {
             placeholder="Your Name"
             value={name}
             onChange={handleNameChange}
+            onFocus={handleFocus}
+            onBlur={handleBlur}
             required
             className="modal-input"
           />
@@ -83,12 +89,16 @@ const ContactModal: React.FC<ContactModalProps> = ({ open, handleClose }) => {
             placeholder="Your Company"
             value={company}
             onChange={handleCompanyChange}
+            onFocus={handleFocus}
+            onBlur={handleBlur}
             required
             className="modal-input"
           />
           <select
             value={category}
             onChange={handleCategoryChange}
+            onFocus={handleFocus}
+            onBlur={handleBlur}
             required
             className="modal-select"
           >
@@ -103,6 +113,8 @@ const ContactModal: React.FC<ContactModalProps> = ({ open, handleClose }) => {
             placeholder="Your Email"
             value={email}
             onChange={handleEmailChange}
+            onFocus={handleFocus}
+            onBlur={handleBlur}
             required
             className="modal-input"
           />

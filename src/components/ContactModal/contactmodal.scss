@@ -32,7 +32,11 @@
     position: relative;
     backdrop-filter: blur(10px);
     overflow: hidden;
-  }
+}
+
+.modal-content.no-floating {
+    animation: slideIn 0.5s ease forwards; /* Оставляет только анимацию появления */
+}
   
   .modal-content::before,
   .modal-content::after {
@@ -156,25 +160,6 @@
   .mail-animation{
     position: relative;
   }
-//   .circle, .circle-outer {
-//     position: absolute;
-//     height: 200px;
-//     width: 200px;
-//     border: 5px solid #5776a8;
-//     background-color: none;
-//     // top: 35px;
-//     // left: 100px;
-//     border-radius: 50%;
-//     z-index: 5;
-// }
-// .circle-outer {
-//     height: 190px;
-//     width: 190px;
-//     // top: 40px;
-//     // left: 105px;
-//     background-color: #5776a8;
-//     z-index: 4;
-// }
 .button {
     position: absolute;
     height: 50px;
