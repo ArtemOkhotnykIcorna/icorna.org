@@ -68,9 +68,9 @@
             align-self: flex-end;
             margin-top: 20px;
             width: 253px;
-            height: 51px;
+            min-height: 55px;
             font-weight: 300;
-            font-size: 32px;
+            font-size: 30px;
             color: #fff;
             transition:all 0.9s ease;
             border-radius: 13px;
@@ -81,9 +81,12 @@
              align-items: center;
              justify-content: center;
              position: absolute;
-             top: -2px;
+             text-align: center;
+             line-height: 17px;
+            //  overflow-wrap: break-word;
+             top: -3px;
              width: 101%; // Кнопка займет всю ширину контейнера
-             height: 55px;
+             min-height: 62px;
              font-weight: 300;
              @include a(#141130, "https://raw.githubusercontent.com/pizza3/asset/master/natureSmaller.png",
              7100%,
@@ -126,13 +129,15 @@
     position: absolute;
     color: #141130;
     display: flex;
+    line-height: 17px;
     color: #fff;
     align-items: center;
     justify-content: center;
+    text-align: center;
     width: 101%;
     height: 101%;
     font-weight: 300;
-    font-size: 32px;
+    font-size: 30px;
     border-radius: 13px;
     overflow: hidden;
     transition:all 0.7s ease;
