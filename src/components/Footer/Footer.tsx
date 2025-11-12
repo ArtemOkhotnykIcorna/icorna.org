@@ -75,7 +75,7 @@ const Footer: React.FC = () => {
             </div>
             <div className='footer_privacy'>
                 <div>
-                Copyright © 2022-2024 IcornA
+                Copyright © 2022-2025 IcornA
                 </div>
                 <div>
                 Privacy & Security Privacy Notice Terms of Use
