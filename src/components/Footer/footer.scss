@@ -172,3 +172,26 @@
         }
     }
  }
+
+.clutch-badges{
+  display:flex;
+  justify-content:left;
+  align-items:center;
+  gap:0px;
+}
+
+.clutch-badge{
+  width:120px;
+  height:120px;
+  display:flex;
+  justify-content:left;
+  align-items:center;
+  overflow:hidden;      /* прибирає “зайві” поля якщо вони є */
+}
+
+.clutch-badge iframe{
+  width:120px;
+  height:120px;
+  border:0;
+  display:block;
+}
